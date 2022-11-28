@@ -1,0 +1,132 @@
+4:07:00
+
+1. what dose the Map() array method do?
+Return a new array. whatever gets returned from the callback function provided is placed at the same index in the new array.
+
+2. what do we usually use map() for in react?
+Convert an array of raw data into an array of JSX elements that can be displayed on the page.
+
+3. why is using map() better than just creating the components manually by typing them out?
+It makes our code more "self-sustaining", not requiring additional changes whenever the data changes.
+
+4:34:50
+export default function App(){
+    const cards = data.map(item=>{
+        return (
+            <Card 
+              key={item.id}
+              {...item} 等於 item = {item}
+              *spread operator
+            >
+
+        )
+    })
+}
+
+5:28:37
+1.How would u describe the concept of "state"?
+A way for react to remember saved values from within a component.
+this is similar to declaring variables from within a component.
+
+2. when would u want to use props instead of state?
+when pass data into a component so that component can determine what will get displayed on the screen.
+
+
+3. when would u want to use state instead of props?
+when you want a component to maintain some values from within the component.
+and remember those values even when react re-renders the component.
+
+4. what does immutable mean? Are props immutable? Is state immutable?
+unchanging. props are immutable. state is mutable.
+
+
+const result = React.useState("hello");
+console.log(result);
+會得到 (2) ['hello', ƒ]
+
+5:53:28
+1. You have 2 options for what u can pass in to a state setter function
+    (e.g. `setCount`) what are they?
+
+a. new value of state (setCount(87))
+b. callback function - whatever the callback function return
+   === new value of state
+
+2. when would u want to pass the first option 
+    to the state setter function?
+
+when u don't need the previous value of state to determine
+what the new value of state should be.
+
+3. when would u want to pass the second option 
+    to the state setter function?
+
+when u DO need the previous value to determine the new value
+
+5:58:47
+const isGoingOut = false
+let answer = isGoingOut === true? "YES" : "NO"
+let answer = isGoingOut ? "YES" : "NO"
+
+
+9:15:00
+1. What is a "side effect" in React? What are some examples?
+
+A: any code that affects an outside system.
+A:  local storage, API, websockets, two states to keep in sync
+
+
+2. What is NOT a "side effect" in React? Examples?
+
+A: anything that react is in charge of.
+A: maintaining state, keeping the UI in sync with the data,
+   render DOM elements
+
+3. When does React run your useEffect function? When does it NOT run
+   the effect function?
+
+A: -as soon as the components loads (first render)
+   -on every re-render of the components
+   -Will NOT run the effect when the values of the dependencies in the
+    array stay the same between renders
+
+4. How would you explain what the "dependecies array" is?
+    - Second parameter to the useEffect function
+    - A way for React to know whether it should re-run 
+
+
+// CHALLENGE 1
+const numbers = [1, 2, 3, 4, 5];
+
+const squared = numbers.map(function (item) {
+  // console.log(item);
+  return item * item;
+});
+
+// CHALLENGE 2
+const names = ["coco", "amy", "lucy", "lauv"];
+
+const uppercase = names.map((name) => {
+  return name[0].toUpperCase() + name.slice(1); //slice(從第幾個開始)
+  // return `${name[0].toUpperCase()}${name.slice(1)}`;
+});
+
+console.log(uppercase);
+
+// CHALLENGE 3
+const bt21 = ["koya", "cooky", "mang"];
+const cuties = bt21.map((character)=>{
+  return `<p>${character}</p>`
+})
+
+console.log(cuties)
+
+
+const like = {
+  name:'koya',
+  color:'blue',
+  hobby:'sleep'
+}
+
+const {name, color} = like
+console.log(name, color)

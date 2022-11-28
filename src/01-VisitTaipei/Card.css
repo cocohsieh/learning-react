@@ -1,0 +1,39 @@
+body {
+    background: rgb(234, 235, 220);
+}
+
+.card-container {
+    display: flex;
+    /* border: 1px solid black; */
+    background: white;
+    box-shadow: 5px 5px 5px grey;
+    margin:  60px ;
+    border-radius: 20px;
+    overflow: hidden;
+    /* justify-content: space-evenly; */
+}
+
+.card-img {
+    width: 400px;
+    border-radius: 10px;
+    margin: 20px 60px;
+
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media screen and (max-width:768px) {
+    .card-container {
+        margin:40px 20px;
+        display: flex;
+        min-width: 85%;
+    }
+    .card-img {
+        margin: 10px;
+        width: 200px;
+    }
+}
